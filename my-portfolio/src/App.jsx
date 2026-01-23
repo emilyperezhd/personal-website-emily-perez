@@ -785,7 +785,7 @@ thumbnail: "/StudyAppThumbnail.png",
                     </div>
                     <div className="min-w-0">
                       <div className="font-medium text-gray-900">Email</div>
-                      <div className="text-sm truncate">emily.perez@example.com</div>
+                      <div className="text-sm truncate">emily.perez.hd@gmail.com</div>
                     </div>
                   </a>
 
