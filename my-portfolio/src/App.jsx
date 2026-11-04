@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { Github, Linkedin, Mail, ExternalLink, ArrowRight, Code2, Palette, Zap, Users, Menu, X } from 'lucide-react';
+import { Github, Linkedin, Mail, ExternalLink, ArrowRight, Code2, Palette, Zap, Users, Menu, X, Bot, GitBranch, ShieldCheck, Cloud } from 'lucide-react';
 
 export default function Portfolio() {
   const [mobileMenu, setMobileMenu] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
   const [skillsModalOpen, setSkillsModalOpen] = useState(false);
+
+  const navItems = ['Home', 'About', 'Projects', 'Experience', 'Education', 'Contact'];
 
   const scrollToSection = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
@@ -100,46 +102,165 @@ thumbnail: "/StudyAppThumbnail.png",
   ];
 
   const skills = [
-    { icon: Code2, title: "Full-Stack Web Development", desc: "React, Next.js, TypeScript, Tailwind" },
-    { icon: Zap, title: "APIs & Integrations", desc: "REST APIs, Shopify Admin API, Webhooks" },
-    { icon: Users, title: "Communication & Leadership", desc: "VP Communications, presenting, teamwork" },
-    { icon: Palette, title: "Data & Analytics", desc: "Excel, PowerBI, data cleaning & organization" },
-    { icon: Code2, title: "Cloud (AWS — In Progress)", desc: "AWS Cloud certification coursework" },
-    { icon: Zap, title: "Tools & Workflow", desc: "Git/GitHub, Docker, VS Code, CI habits" }
+    { icon: Code2, title: "Full-Stack & Frontend Development", desc: "React.js, Next.js, TypeScript, JavaScript (ES6), Webpack, Bootstrap, SCSS, Tailwind" },
+    { icon: Zap, title: "APIs & Integrations", desc: "REST APIs, API migrations & architecture, Shopify Admin API, Webhooks" },
+    { icon: Bot, title: "AI & Automation", desc: "Microsoft Copilot / Agent Builder, Power Automate, Microsoft Lists & Forms" },
+    { icon: GitBranch, title: "Agile & DevOps", desc: "Scrum, Jira, Confluence, Jenkins, CI/CD, SonarQube, unit testing, Git/GitHub, Docker" },
+    { icon: Palette, title: "Data & Analytics", desc: "Excel, PowerBI, data analysis, data cleaning & organization" },
+    { icon: ShieldCheck, title: "Governance & Change", desc: "Governance and risk frameworks, change management, stakeholder communications" },
+    { icon: Users, title: "Communication & Leadership", desc: "VP Communications, presenting, mentoring, teamwork, bilingual (English & Spanish)" },
+    { icon: Cloud, title: "Cloud (AWS — In Progress)", desc: "AWS Cloud certification coursework" }
   ];
 
+  const skillSections = [
+    {
+      title: "Programming Languages",
+      type: "chips",
+      chip: "bg-purple-100 text-purple-700",
+      items: ["JavaScript (ES6)", "TypeScript", "Java", "Python", "C", "SQL", "HTML", "CSS/SCSS"]
+    },
+    {
+      title: "Frontend",
+      type: "chips",
+      chip: "bg-purple-100 text-purple-700",
+      items: ["React.js", "Next.js", "Bootstrap", "Tailwind CSS", "Webpack", "Responsive UI", "UX Design"]
+    },
+    {
+      title: "Backend, APIs & Data",
+      type: "chips",
+      chip: "bg-blue-100 text-blue-700",
+      items: ["Node.js", "REST APIs", "API Migration & Architecture", "Shopify Admin API", "Webhooks", "MongoDB", "PostgreSQL (Neon)", "Prisma", "Convex", "Clerk", "Excel", "PowerBI"]
+    },
+    {
+      title: "Agile & DevOps",
+      type: "chips",
+      chip: "bg-blue-100 text-blue-700",
+      items: ["Agile/Scrum", "Jira", "Confluence", "Jenkins", "CI/CD", "SonarQube", "Unit Testing", "Docker", "Git", "GitHub"]
+    },
+    {
+      title: "AI & Process Automation",
+      type: "chips",
+      chip: "bg-purple-100 text-purple-700",
+      items: ["Microsoft Copilot / Agent Builder", "Power Automate", "Microsoft Lists and Forms", "LangChain + OpenAI", "Data Analysis (Excel)", "Governance and Risk Frameworks", "Change Management", "Stakeholder Communications"]
+    },
+    {
+      title: "Software Development",
+      type: "list",
+      items: [
+        "AWS Certification (in progress)",
+        "Assembly language",
+        "Object-Oriented Programming",
+        "File I/O",
+        "Data Structures",
+        "Memory Management",
+        "Debugging",
+        "API Integration",
+        "UX Design"
+      ]
+    },
+    {
+      title: "Tools & Platforms",
+      type: "chips",
+      chip: "bg-gray-100 text-gray-700",
+      items: ["VS Code", "IntelliJ", "GitHub Copilot", "Microsoft Office", "SharePoint", "Overleaf"]
+    },
+    {
+      title: "Professional Skills",
+      type: "chips",
+      chip: "bg-pink-100 text-pink-700",
+      items: ["Leadership", "Mentoring Junior Students", "Communication", "Presenting", "Teamwork", "Adaptability", "Organization", "Cross-Cultural Collaboration"]
+    },
+    {
+      title: "Operating Systems",
+      type: "chips",
+      chip: "bg-green-100 text-green-700",
+      items: ["Linux", "macOS", "Windows"]
+    },
+    {
+      title: "Spoken Languages",
+      type: "chips",
+      chip: "bg-green-100 text-green-700",
+      items: ["English (Fluent)", "Spanish (Fluent)"]
+    }
+  ];
 
-  const fullTechSkills = {
-    languages: ["Java", "C", "Python", "JavaScript/TypeScript", "HTML", "CSS", "SQL"],
-    softwareDevelopment: [
-      "AWS Certificate in progress",
-      "Assembly language",
-      "Object-Oriented Programming",
-      "File I/O",
-      "Data Structures",
-      "Memory Management",
-      "Debugging",
-      "API Integration",
-      "UX Design"
-    ],
-    frameworksTools: [
-      "Microsoft Office",
-      "PowerBI",
-      "Next.js",
-      "Tailwind CSS",
-      "Convex",
-      "Clerk",
-      "MongoDB",
-      "Shopify Admin API",
-      "Git",
-      "IntelliJ",
-      "VS Code",
-      "Copilot"
-    ],
-    collaborationWorkflow: ["GitHub", "Confluence", "SharePoint", "Overleaf", "Docker"],
-    operatingSystems: ["Linux", "macOS", "Windows"]
-  };
+  const sunLifeRoles = [
+    {
+      title: "Frontend Developer",
+      dates: "Apr 2026 – Dec 2026",
+      tags: ["React.js", "JavaScript/ES6", "HTML", "CSS/SCSS", "Bootstrap", "Webpack", "Jira", "Confluence", "Jenkins", "SonarQube"],
+      bullets: [
+        "Collaborated within a cross-functional agile team to develop client-facing web applications.",
+        "Built and improved React single-page applications using React.js, JavaScript/ES6, HTML, CSS/SCSS, Bootstrap, and Webpack, improving usability and maintainability.",
+        "Created unit tests to ensure functionality and code quality, catching defects early before QA handoff.",
+        "Worked with developers, business analysts, UX designers, and QA testers to deliver high-quality solutions.",
+        "Participated in agile scrum ceremonies including planning, estimation, development, and testing."
+      ]
+    },
+    {
+      title: "AI Strategy and Transformation (Student Gig)",
+      dates: "Aug 2026 – Dec 2026",
+      tags: ["Microsoft Copilot / Agent Builder", "Power Automate", "Data Analysis", "Governance & Risk", "Change Management"],
+      bullets: [
+        "Supported an enterprise initiative to identify, inventory, and scale high-impact employee-built Microsoft Copilot Agents across a 706-license operations organization, reducing duplicated effort and siloed work.",
+        "Primarily built the central agent inventory, creating helper Agent Builder agents to screen and analyze agent data and using Power Automate to automate the intake-to-inventory process.",
+        "Analyzed an inventory of 693 agents and classified them into five usage categories and three maturity levels, showing that 94.9% were team-based and only 3.5% were operationally framed.",
+        "Measured Agent Builder adoption at 29.2% (206 builders out of 706 license holders) by VP and employee level, helping leadership see where to target enablement.",
+        "Screened agents for potential client and employee PII exposure (46.8% flagged), feeding a risk-review process built with enterprise risk.",
+        "Helped design a 7-component deployment framework covering central intake and triage, inventory, risk review, a community of practice, change management and comms, insights and reporting, and value realization.",
+        "Contributed to a 3-phase roadmap (Oct–Dec) and program metrics: % adoption, % of shared agents risk-reviewed, and # of agents inventoried."
+      ]
+    },
+    {
+      title: "API Software Engineering (Student Gig)",
+      dates: "May 2026 – Dec 2026",
+      tags: ["REST APIs", "API Migration", "Architecture"],
+      bullets: [
+        "Supported API migrations and architecture work, helping services integrate more reliably and become easier to maintain."
+      ]
+    }
+  ];
 
+  const education = [
+    {
+      title: "University of Guelph",
+      subtitle: "Bachelor of Computing in Computer Science · Business Minor · Co-op",
+      location: "Guelph, ON",
+      dates: "Aug 2024 – Apr 2029",
+      bullets: [
+        "GPA: 4.0 (90% average)",
+        "University of Guelph Dean’s Honours List"
+      ]
+    },
+    {
+      title: "Universidad de Alcalá",
+      subtitle: "International Exchange Term (through the University of Guelph)",
+      location: "Madrid, Spain",
+      dates: "Jan 2027 – Jun 2027",
+      bullets: [
+        "Studying abroad for a semester in Madrid, completing university coursework while building cross-cultural collaboration skills.",
+        "Fluent in Spanish, allowing full participation in a bilingual academic environment."
+      ]
+    }
+  ];
+
+  const certifications = [
+    {
+      title: "React 18 / 19 Course 2025 – Learn React JS the Fast Way",
+      subtitle: "Udemy · 13 Hours",
+      dates: "May 2026",
+      bullets: [
+        "Completed hands-on training in modern React development, including components, JSX, props, state management, hooks, routing, and reusable UI design.",
+        "Built interactive frontend applications using React 18/19 concepts and modern JavaScript practices."
+      ]
+    },
+    {
+      title: "AWS Cloud Certification",
+      subtitle: "Amazon Web Services (AWS)",
+      dates: "In Progress",
+      bullets: []
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-100 via-purple-50 to-pink-100 overflow-x-hidden">
@@ -151,7 +272,7 @@ thumbnail: "/StudyAppThumbnail.png",
           </div>
           
           <div className="hidden md:flex items-center gap-6 lg:gap-8">  
-          {['Home', 'About', 'Projects', 'Experience', 'Contact'].map((item) => (
+          {navItems.map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
@@ -176,7 +297,7 @@ thumbnail: "/StudyAppThumbnail.png",
 
         {mobileMenu && (
           <div className="md:hidden bg-white border-t">
-            {['Home', 'About', 'Projects', 'Experience', 'Contact'].map((item) => (
+            {navItems.map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
@@ -363,7 +484,7 @@ thumbnail: "/StudyAppThumbnail.png",
           >
             {/* Header */}
             <div className="sticky top-0 bg-gradient-to-r from-purple-600 to-blue-600 px-6 py-5 flex items-center justify-between rounded-t-3xl">
-              <h3 className="text-2xl font-bold text-white">Full Technical Skills</h3>
+              <h3 className="text-2xl font-bold text-white">Full Technical & Professional Skills</h3>
               <button
                 onClick={() => setSkillsModalOpen(false)}
                 className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors"
@@ -374,81 +495,32 @@ thumbnail: "/StudyAppThumbnail.png",
 
             {/* Scrollable Content */}
             <div className="overflow-y-auto p-8 space-y-8">
-              {/* Languages */}
-              <div>
-                <h4 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                  <span className="w-1 h-6 bg-purple-600 rounded-full"></span>
-                  Programming Languages
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                  {fullTechSkills.languages.map((item, i) => (
-                    <span key={i} className="px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-medium">
-                      {item}
-                    </span>
-                  ))}
+              {skillSections.map((section) => (
+                <div key={section.title}>
+                  <h4 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                    <span className="w-1 h-6 bg-purple-600 rounded-full"></span>
+                    {section.title}
+                  </h4>
+                  {section.type === 'list' ? (
+                    <ul className="space-y-3">
+                      {section.items.map((item, i) => (
+                        <li key={i} className="flex gap-3">
+                          <span className="text-purple-600 font-bold mt-1">•</span>
+                          <span className="text-gray-700 leading-relaxed flex-1">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <div className="flex flex-wrap gap-2">
+                      {section.items.map((item, i) => (
+                        <span key={i} className={`px-4 py-2 ${section.chip} rounded-full text-sm font-medium`}>
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                 </div>
-              </div>
-
-              {/* Software Dev */}
-              <div>
-                <h4 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                  <span className="w-1 h-6 bg-purple-600 rounded-full"></span>
-                  Software Development
-                </h4>
-                <ul className="space-y-3">
-                  {fullTechSkills.softwareDevelopment.map((item, i) => (
-                    <li key={i} className="flex gap-3">
-                      <span className="text-purple-600 font-bold mt-1">•</span>
-                      <span className="text-gray-700 leading-relaxed flex-1">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Frameworks / Tools */}
-              <div>
-                <h4 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                  <span className="w-1 h-6 bg-purple-600 rounded-full"></span>
-                  Frameworks & Tools
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                  {fullTechSkills.frameworksTools.map((item, i) => (
-                    <span key={i} className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Collaboration */}
-              <div>
-                <h4 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                  <span className="w-1 h-6 bg-purple-600 rounded-full"></span>
-                  Collaboration & Workflow
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                  {fullTechSkills.collaborationWorkflow.map((item, i) => (
-                    <span key={i} className="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* OS */}
-              <div>
-                <h4 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                  <span className="w-1 h-6 bg-purple-600 rounded-full"></span>
-                  Operating Systems
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                  {fullTechSkills.operatingSystems.map((item, i) => (
-                    <span key={i} className="px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-medium">
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
+              ))}
 
               <div className="pt-2">
                 <button
@@ -481,7 +553,7 @@ thumbnail: "/StudyAppThumbnail.png",
             </h1>
 
             <p className="text-lg sm:text-xl text-gray-600 leading-relaxed">
-             Computer Science (Co-op) student at the University of Guelph with a Business minor. Here you’ll find an overview of my experience, projects, and technical skill set.
+             Computer Science (Co-op) student at the University of Guelph with a Business minor, currently working at Sun Life and heading to Universidad de Alcalá in Madrid for an exchange in 2027. Here you’ll find an overview of my experience, projects, and technical skill set.
             </p>
 
 
@@ -508,7 +580,7 @@ thumbnail: "/StudyAppThumbnail.png",
               <a href="https://www.linkedin.com/in/emily-perez-837b33262/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-gray-600 hover:text-purple-600 hover:shadow-lg transition-all shadow-md">
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a href="mailto:emily.perez.hd@example.com" className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-gray-600 hover:text-purple-600 hover:shadow-lg transition-all shadow-md">
+              <a href="mailto:emily.perez.hd@gmail.com" className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-gray-600 hover:text-purple-600 hover:shadow-lg transition-all shadow-md">
                 <Mail className="w-5 h-5" />
               </a>
             </div>
@@ -561,6 +633,12 @@ thumbnail: "/StudyAppThumbnail.png",
               I also care a lot about my academic work and take pride in doing well in school.
               I’m fluent in English and Spanish, which has helped me connect with others and
               collaborate more effectively in different settings.
+            </p>
+
+            <p className="text-base lg:text-lg text-gray-600 leading-relaxed">
+              This year I’m on co-op at Sun Life, where I work as a Frontend Developer in an agile team
+              and contribute to API engineering and AI strategy projects. In January 2027 I’ll continue my
+              studies on exchange at Universidad de Alcalá in Madrid, Spain.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-2">
@@ -672,54 +750,107 @@ thumbnail: "/StudyAppThumbnail.png",
       </section>
 
       {/* Experience Section */}
-        <section id="experience" className="min-h-screen px-4 sm:px-6 lg:px-8 py-20 lg:py-32 bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100">
-          <div className="w-full max-w-7xl mx-auto">
-            <div className="text-center mb-12 lg:mb-16">
-              <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">Experience</h2>
-              <p className="text-lg sm:text-xl text-gray-600">Where I’ve applied my skills</p>
+      <section id="experience" className="min-h-screen px-4 sm:px-6 lg:px-8 py-20 lg:py-32 bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100">
+        <div className="w-full max-w-7xl mx-auto">
+          <div className="text-center mb-12 lg:mb-16">
+            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">Experience</h2>
+            <p className="text-lg sm:text-xl text-gray-600">Where I’ve applied my skills</p>
+          </div>
+
+          <div className="space-y-8">
+            {/* Sun Life */}
+            <div className="bg-white rounded-3xl p-6 lg:p-8 shadow-lg border border-gray-100">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
+                <h3 className="text-xl lg:text-2xl font-bold text-gray-900">
+                  Sun Life
+                </h3>
+                <span className="text-sm text-gray-500">
+                  Apr 2026 – Dec 2026
+                </span>
+              </div>
+              <p className="text-purple-600 font-medium mb-6">
+                Co-op Student · Kitchener, ON
+              </p>
+
+              <div className="space-y-8">
+                {sunLifeRoles.map((role, idx) => (
+                  <div key={idx} className="border-l-4 border-purple-200 pl-5">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3">
+                      <h4 className="text-lg lg:text-xl font-bold text-gray-900">
+                        {role.title}
+                      </h4>
+                      <span className="text-sm text-gray-500">
+                        {role.dates}
+                      </span>
+                    </div>
+
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {role.tags.map((tag, i) => (
+                        <span key={i} className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    <ul className="space-y-3">
+                      {role.bullets.map((bullet, i) => (
+                        <li key={i} className="flex gap-3">
+                          <span className="text-purple-600 font-bold mt-1">•</span>
+                          <span className="text-gray-700 leading-relaxed flex-1">{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            <div className="space-y-8">
-              {/* Helios */}
-              <div className="bg-white rounded-3xl p-6 lg:p-8 shadow-lg border border-gray-100">
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
-                  <h3 className="text-xl lg:text-2xl font-bold text-gray-900">
-                    Shopify Developer
-                  </h3>
-                  <span className="text-sm text-gray-500">
-                    Apr 2025 – Aug 2025
-                  </span>
-                </div>
-                <p className="text-purple-600 font-medium mb-4">
-                  Helios Technology Solutions Inc. · Cambridge, ON
-                </p>
-                <ul className="space-y-3">
-                  <li className="flex gap-3">
-                    <span className="text-purple-600 font-bold mt-1">•</span>
-                    <span className="text-gray-700 leading-relaxed flex-1">
-                      Collaborated with clients to launch and optimize Shopify stores, including setup, theme customization, and tailored ecommerce workflows.
-                    </span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="text-purple-600 font-bold mt-1">•</span>
-                    <span className="text-gray-700 leading-relaxed flex-1">
-                      Deployed and configured POS systems and hardware, ensuring seamless in-store and online integration.
-                    </span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="text-purple-600 font-bold mt-1">•</span>
-                    <span className="text-gray-700 leading-relaxed flex-1">
-                      Managed product data, inventory, and SEO across multi-location stores with a focus on accuracy and scalability.
-                    </span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="text-purple-600 font-bold mt-1">•</span>
-                    <span className="text-gray-700 leading-relaxed flex-1">
-                      Designed a Python + MongoDB prototype backup system using the Shopify Admin API, reducing migration-related errors by ~40%.
-                    </span>
-                  </li>
-                </ul>
+            {/* Helios */}
+            <div className="bg-white rounded-3xl p-6 lg:p-8 shadow-lg border border-gray-100">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
+                <h3 className="text-xl lg:text-2xl font-bold text-gray-900">
+                  Shopify Developer
+                </h3>
+                <span className="text-sm text-gray-500">
+                  Apr 2025 – Aug 2025
+                </span>
               </div>
+              <p className="text-purple-600 font-medium mb-4">
+                Helios Technology Solutions Inc. · Cambridge, ON
+              </p>
+              <ul className="space-y-3">
+                <li className="flex gap-3">
+                  <span className="text-purple-600 font-bold mt-1">•</span>
+                  <span className="text-gray-700 leading-relaxed flex-1">
+                    Collaborated with clients to launch and optimize Shopify stores, including setup, theme customization, and tailored ecommerce workflows.
+                  </span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-purple-600 font-bold mt-1">•</span>
+                  <span className="text-gray-700 leading-relaxed flex-1">
+                    Deployed and configured POS systems and hardware (Lightspeed, Square, QuickBooks), ensuring seamless in-store and online integration.
+                  </span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-purple-600 font-bold mt-1">•</span>
+                  <span className="text-gray-700 leading-relaxed flex-1">
+                    Managed product data, inventory, and SEO across multi-location stores with a focus on accuracy and scalability.
+                  </span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-purple-600 font-bold mt-1">•</span>
+                  <span className="text-gray-700 leading-relaxed flex-1">
+                    Delivered hands-on training and technical support to improve client operations and customer experience.
+                  </span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-purple-600 font-bold mt-1">•</span>
+                  <span className="text-gray-700 leading-relaxed flex-1">
+                    Designed a Python + MongoDB prototype backup system using the Shopify Admin API and webhooks, reducing migration-related errors by ~40%.
+                  </span>
+                </li>
+              </ul>
+            </div>
 
             {/* SOCIS */}
             <div className="bg-white rounded-3xl p-6 lg:p-8 shadow-lg border border-gray-100">
@@ -728,7 +859,7 @@ thumbnail: "/StudyAppThumbnail.png",
                   Vice President of Communications
                 </h3>
                 <span className="text-sm text-gray-500">
-                  May 2025 – Present
+                  May 2025 – June 2026
                 </span>
               </div>
               <p className="text-purple-600 font-medium mb-4">
@@ -759,6 +890,74 @@ thumbnail: "/StudyAppThumbnail.png",
         </div>
       </section>
 
+      {/* Education & Certifications Section */}
+      <section id="education" className="min-h-screen px-4 sm:px-6 lg:px-8 py-20 lg:py-32 bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100">
+        <div className="w-full max-w-7xl mx-auto">
+          <div className="text-center mb-12 lg:mb-16">
+            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">Education</h2>
+            <p className="text-lg sm:text-xl text-gray-600">Where I’m learning and growing</p>
+          </div>
+
+          <div className="space-y-8">
+            {education.map((item, idx) => (
+              <div key={idx} className="bg-white rounded-3xl p-6 lg:p-8 shadow-lg border border-gray-100">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
+                  <h3 className="text-xl lg:text-2xl font-bold text-gray-900">
+                    {item.title}
+                  </h3>
+                  <span className="text-sm text-gray-500">
+                    {item.dates}
+                  </span>
+                </div>
+                <p className="text-purple-600 font-medium mb-4">
+                  {item.subtitle} · {item.location}
+                </p>
+                <ul className="space-y-3">
+                  {item.bullets.map((bullet, i) => (
+                    <li key={i} className="flex gap-3">
+                      <span className="text-purple-600 font-bold mt-1">•</span>
+                      <span className="text-gray-700 leading-relaxed flex-1">{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-16 mb-12 lg:mb-16">
+            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">Certifications</h2>
+          </div>
+
+          <div className="space-y-8">
+            {certifications.map((item, idx) => (
+              <div key={idx} className="bg-white rounded-3xl p-6 lg:p-8 shadow-lg border border-gray-100">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
+                  <h3 className="text-xl lg:text-2xl font-bold text-gray-900">
+                    {item.title}
+                  </h3>
+                  <span className="text-sm text-gray-500">
+                    {item.dates}
+                  </span>
+                </div>
+                <p className={`text-purple-600 font-medium ${item.bullets.length ? 'mb-4' : ''}`}>
+                  {item.subtitle}
+                </p>
+                {item.bullets.length > 0 && (
+                  <ul className="space-y-3">
+                    {item.bullets.map((bullet, i) => (
+                      <li key={i} className="flex gap-3">
+                        <span className="text-purple-600 font-bold mt-1">•</span>
+                        <span className="text-gray-700 leading-relaxed flex-1">{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Contact Section */}
       <section id="contact" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20 lg:py-32 bg-gradient-to-br from-purple-100 via-pink-100 to-orange-100">
         <div className="w-full max-w-4xl mx-auto">
@@ -779,7 +978,7 @@ thumbnail: "/StudyAppThumbnail.png",
                 </div>
 
                 <div className="space-y-4">
-                  <a href="mailto:emily.perez@example.com" className="flex items-center gap-3 text-gray-600 hover:text-purple-600 transition-colors">
+                  <a href="mailto:emily.perez.hd@gmail.com" className="flex items-center gap-3 text-gray-600 hover:text-purple-600 transition-colors">
                     <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
                       <Mail className="w-5 h-5 text-purple-600" />
                     </div>
@@ -799,7 +998,7 @@ thumbnail: "/StudyAppThumbnail.png",
                     </div>
                   </a>
 
-                  <a href="https://linkedin.com/in/emilyperezhd" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-gray-600 hover:text-purple-600 transition-colors">
+                  <a href="https://www.linkedin.com/in/emily-perez-837b33262/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-gray-600 hover:text-purple-600 transition-colors">
                     <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
                       <Linkedin className="w-5 h-5 text-purple-600" />
                     </div>
