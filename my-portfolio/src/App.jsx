@@ -6,7 +6,7 @@ export default function Portfolio() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [skillsModalOpen, setSkillsModalOpen] = useState(false);
 
-  const navItems = ['Home', 'About', 'Projects', 'Experience', 'Education', 'Contact'];
+  const navItems = ['Home', 'About', 'Experience', 'Projects', 'Education', 'Contact'];
 
   const scrollToSection = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
@@ -109,7 +109,7 @@ thumbnail: "/StudyAppThumbnail.png",
     { icon: Palette, title: "Data & Analytics", desc: "Excel, PowerBI, data analysis, data cleaning & organization" },
     { icon: ShieldCheck, title: "Governance & Change", desc: "Governance and risk frameworks, change management, stakeholder communications" },
     { icon: Users, title: "Communication & Leadership", desc: "VP Communications, presenting, mentoring, teamwork, bilingual (English & Spanish)" },
-    { icon: Cloud, title: "Cloud (AWS — In Progress)", desc: "AWS Cloud certification coursework" }
+    { icon: Cloud, title: "Cloud (AWS)", desc: "Preparing for AWS certification (January 2027)" }
   ];
 
   const skillSections = [
@@ -147,7 +147,7 @@ thumbnail: "/StudyAppThumbnail.png",
       title: "Software Development",
       type: "list",
       items: [
-        "AWS Certification (in progress)",
+        "AWS Certification (January 2027)",
         "Assembly language",
         "Object-Oriented Programming",
         "File I/O",
@@ -187,36 +187,42 @@ thumbnail: "/StudyAppThumbnail.png",
   const sunLifeRoles = [
     {
       title: "Frontend Developer",
-      dates: "Apr 2026 – Dec 2026",
+      dates: "Apr 2026 – Present",
       tags: ["React.js", "JavaScript/ES6", "HTML", "CSS/SCSS", "Bootstrap", "Webpack", "Jira", "Confluence", "Jenkins", "SonarQube"],
       bullets: [
         "Collaborated within a cross-functional agile team to develop client-facing web applications.",
         "Built and improved React single-page applications using React.js, JavaScript/ES6, HTML, CSS/SCSS, Bootstrap, and Webpack, improving usability and maintainability.",
-        "Created unit tests to ensure functionality and code quality, catching defects early before QA handoff.",
-        "Worked with developers, business analysts, UX designers, and QA testers to deliver high-quality solutions.",
-        "Participated in agile scrum ceremonies including planning, estimation, development, and testing."
+        "Created unit tests to validate functionality and code quality, identifying defects early before QA handoff.",
+        "Partnered with developers, business analysts, UX designers, and QA specialists throughout sprint planning, development, testing, and delivery."
       ]
     },
     {
-      title: "AI Strategy and Transformation (Student Gig)",
-      dates: "Aug 2026 – Dec 2026",
+      title: "AI Strategy and Transformation (Part-Time Contract)",
+      dates: "Aug 2026 – Present",
       tags: ["Microsoft Copilot / Agent Builder", "Power Automate", "Data Analysis", "Governance & Risk", "Change Management"],
       bullets: [
-        "Supported an enterprise initiative to identify, inventory, and scale high-impact employee-built Microsoft Copilot Agents across a 706-license operations organization, reducing duplicated effort and siloed work.",
-        "Primarily built the central agent inventory, creating helper Agent Builder agents to screen and analyze agent data and using Power Automate to automate the intake-to-inventory process.",
-        "Analyzed an inventory of 693 agents and classified them into five usage categories and three maturity levels, showing that 94.9% were team-based and only 3.5% were operationally framed.",
-        "Measured Agent Builder adoption at 29.2% (206 builders out of 706 license holders) by VP and employee level, helping leadership see where to target enablement.",
-        "Screened agents for potential client and employee PII exposure (46.8% flagged), feeding a risk-review process built with enterprise risk.",
-        "Helped design a 7-component deployment framework covering central intake and triage, inventory, risk review, a community of practice, change management and comms, insights and reporting, and value realization.",
-        "Contributed to a 3-phase roadmap (Oct–Dec) and program metrics: % adoption, % of shared agents risk-reviewed, and # of agents inventoried."
+        "Helped advance an enterprise-wide AI initiative that originated as an AI prioritization concept developed for a Sun Life Student Innovation Challenge. After attracting organizational interest, the concept evolved into a larger initiative focused on evaluating and scaling Microsoft Agent Builder adoption.",
+        "Analyze Microsoft Agent Builder agents across Canadian operations, assessing use cases, reusability, scalability, and implementation feasibility to identify opportunities for enterprise adoption and inform strategic prioritization.",
+        "Developed a centralized agent inventory and supporting Agent Builder agents, using Power Automate to streamline intake and analysis. Evaluated 693 agents across five usage categories and three maturity levels, and measured adoption at 29.2% among 706 license holders to inform enablement and deployment planning.",
+        "Assessed potential PII exposure across enterprise agents, flagging 46.8% for further review and supporting risk evaluation, governance, and follow-up prioritization in collaboration with enterprise risk stakeholders."
       ]
     },
     {
-      title: "API Software Engineering (Student Gig)",
-      dates: "May 2026 – Dec 2026",
-      tags: ["REST APIs", "API Migration", "Architecture"],
+      title: "API Software Engineering (Part-Time Contract)",
+      dates: "May 2026 – Present",
+      tags: ["Java 25", "Spring Boot 4", "REST APIs", "API Migration", "Architecture"],
       bullets: [
-        "Supported API migrations and architecture work, helping services integrate more reliably and become easier to maintain."
+        "Contributed to enterprise API migrations to Java 25 and Spring Boot 4, modernizing backend services to improve maintainability and integration reliability.",
+        "Supported API architecture and modernization work, collaborating on service improvements and maintaining consistency across backend systems."
+      ]
+    },
+    {
+      title: "Student Innovation Challenges",
+      dates: "2026 – Present",
+      tags: ["AI Innovation", "Strategic Prioritization", "Process Optimization", "Dashboard Design", "Team Collaboration"],
+      bullets: [
+        "Co-developed SunScore, an AI-powered initiative prioritization concept created during a Sun Life Student Innovation Challenge to assess project feasibility and scalability and help inform strategic investment and resource allocation.",
+        "Currently collaborating on a Delivery Flow Visibility Dashboard to track work across the delivery pipeline, surface bottlenecks, and reduce wait times by improving visibility into progress and process efficiency."
       ]
     }
   ];
@@ -257,7 +263,7 @@ thumbnail: "/StudyAppThumbnail.png",
     {
       title: "AWS Cloud Certification",
       subtitle: "Amazon Web Services (AWS)",
-      dates: "In Progress",
+      dates: "January 2027",
       bullets: []
     }
   ];
@@ -542,7 +548,7 @@ thumbnail: "/StudyAppThumbnail.png",
           <div className="space-y-6 lg:space-y-8">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-purple-100 rounded-full text-purple-600 font-medium text-sm">
               <div className="w-2 h-2 bg-purple-600 rounded-full animate-pulse" />
-              Available for opportunities
+              Open to learning and new experiences
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-tight">
@@ -553,7 +559,7 @@ thumbnail: "/StudyAppThumbnail.png",
             </h1>
 
             <p className="text-lg sm:text-xl text-gray-600 leading-relaxed">
-             Computer Science (Co-op) student at the University of Guelph with a Business minor, currently working at Sun Life and heading to Universidad de Alcalá in Madrid for an exchange in 2027. Here you’ll find an overview of my experience, projects, and technical skill set.
+             I’m a Computer Science student with a Business minor who enjoys learning, exploring new ideas, and taking on different challenges. I’m open to a wide range of experiences and opportunities to grow, contribute, and discover new interests. Here you’ll find a little about what I’ve learned, built, and been involved in so far.
             </p>
 
 
@@ -618,27 +624,19 @@ thumbnail: "/StudyAppThumbnail.png",
           <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-center mb-16">
             <div className="space-y-6">
             <p className="text-base lg:text-lg text-gray-600 leading-relaxed">
-              I’m Emily, a Computer Science student who enjoys learning, working with people,
-              and understanding how things fit together. I’m adaptable, pick up new tools quickly,
-              and appreciate environments where communication and collaboration are encouraged.
+              I’m Emily, a Computer Science student with a curiosity about how things work and how ideas can be turned into practical solutions. I genuinely enjoy learning, whether that means exploring a new technology, taking on an unfamiliar challenge, or gaining a different perspective from the people around me.
             </p>
 
             <p className="text-base lg:text-lg text-gray-600 leading-relaxed">
-              I’m someone who values clear conversations, asking questions, and staying organized
-              when working with others. I’m comfortable communicating with people from different
-              backgrounds and explaining ideas in a way that makes sense.
+              I believe every experience has something to teach you. I try to approach new opportunities with an open mind, a willingness to ask questions, and the motivation to keep improving. I’m open to exploring different fields and roles, and I enjoy finding ways to contribute while learning from the people I work with.
             </p>
 
             <p className="text-base lg:text-lg text-gray-600 leading-relaxed">
-              I also care a lot about my academic work and take pride in doing well in school.
-              I’m fluent in English and Spanish, which has helped me connect with others and
-              collaborate more effectively in different settings.
+              I value collaboration, clear communication, and bringing a positive attitude to the teams and communities I’m part of. I’m fluent in English and Spanish, and I enjoy connecting with people from different backgrounds and learning from their experiences.
             </p>
 
             <p className="text-base lg:text-lg text-gray-600 leading-relaxed">
-              This year I’m on co-op at Sun Life, where I work as a Frontend Developer in an agile team
-              and contribute to API engineering and AI strategy projects. In January 2027 I’ll continue my
-              studies on exchange at Universidad de Alcalá in Madrid, Spain.
+              Outside the classroom, I’ve had opportunities to explore software development, AI, business, student leadership, and collaborative projects. I’m excited to keep building on those experiences, try new things, and see where continued learning takes me.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-2">
@@ -692,63 +690,6 @@ thumbnail: "/StudyAppThumbnail.png",
         </div>
       </section>
 
-      {/* Projects Section */}
-      <section id="projects" className="min-h-screen px-4 sm:px-6 lg:px-8 py-20 lg:py-32 bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100">
-        <div className="w-full max-w-7xl mx-auto">
-          <div className="text-center mb-12 lg:mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">Featured Projects</h2>
-            <p className="text-lg sm:text-xl text-gray-600">Some of my recent work</p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {projects.map((project, idx) => (
-              <div
-                key={idx}
-                className="group bg-white rounded-3xl p-6 lg:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-purple-200"
-              >
-                <div className={`w-16 h-16 lg:w-20 lg:h-20 ${project.color} rounded-2xl flex items-center justify-center text-3xl lg:text-4xl mb-6 group-hover:scale-110 transition-transform shadow-lg`}>
-                  {project.emoji}
-                </div>
-
-                <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-3">
-                  {project.title}
-                </h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  {project.description}
-                </p>
-
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tech.slice(0, 3).map((tech, i) => (
-                    <span key={i} className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="flex flex-col gap-3">
-                  <button 
-                    onClick={() => setSelectedProject(project)}
-                    className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full font-medium hover:shadow-lg hover:scale-105 transition-all text-sm"
-                  >
-                    Read More
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
-                  <a 
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-full font-medium hover:bg-gray-200 transition-all text-sm"
-                  >
-                    <Github className="w-4 h-4" />
-                    View on GitHub
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Experience Section */}
       <section id="experience" className="min-h-screen px-4 sm:px-6 lg:px-8 py-20 lg:py-32 bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100">
         <div className="w-full max-w-7xl mx-auto">
@@ -765,7 +706,7 @@ thumbnail: "/StudyAppThumbnail.png",
                   Sun Life
                 </h3>
                 <span className="text-sm text-gray-500">
-                  Apr 2026 – Dec 2026
+                  Apr 2026 – Present
                 </span>
               </div>
               <p className="text-purple-600 font-medium mb-6">
@@ -869,23 +810,87 @@ thumbnail: "/StudyAppThumbnail.png",
                 <li className="flex gap-3">
                   <span className="text-purple-600 font-bold mt-1">•</span>
                   <span className="text-gray-700 leading-relaxed flex-1">
-                    Elected to lead student–faculty engagement through clear, inclusive, and transparent communication.
+                    Elected to support student–faculty engagement through clear, inclusive, and transparent communication.
                   </span>
                 </li>
                 <li className="flex gap-3">
                   <span className="text-purple-600 font-bold mt-1">•</span>
                   <span className="text-gray-700 leading-relaxed flex-1">
-                    Manage content strategy, event promotion, and community updates across multiple platforms.
+                    Led communications and content strategy across social media, newsletters, announcements, and event promotion.
                   </span>
                 </li>
                 <li className="flex gap-3">
                   <span className="text-purple-600 font-bold mt-1">•</span>
                   <span className="text-gray-700 leading-relaxed flex-1">
-                    Collaborate with executive team members to foster a connected and supportive academic community.
+                    Collaborated with executive members to plan and coordinate events throughout the academic year, supporting logistics and engagement for events with 100+ attendees.
+                  </span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-purple-600 font-bold mt-1">•</span>
+                  <span className="text-gray-700 leading-relaxed flex-1">
+                    Participated in networking and professional development events, building connections across diverse fields and expanding industry knowledge.
                   </span>
                 </li>
               </ul>
             </div>
+          </div>
+        </div>
+      </section>
+
+
+      {/* Projects Section */}
+      <section id="projects" className="min-h-screen px-4 sm:px-6 lg:px-8 py-20 lg:py-32 bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100">
+        <div className="w-full max-w-7xl mx-auto">
+          <div className="text-center mb-12 lg:mb-16">
+            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">Featured Projects</h2>
+            <p className="text-lg sm:text-xl text-gray-600">Some of my recent work</p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {projects.map((project, idx) => (
+              <div
+                key={idx}
+                className="group bg-white rounded-3xl p-6 lg:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-purple-200"
+              >
+                <div className={`w-16 h-16 lg:w-20 lg:h-20 ${project.color} rounded-2xl flex items-center justify-center text-3xl lg:text-4xl mb-6 group-hover:scale-110 transition-transform shadow-lg`}>
+                  {project.emoji}
+                </div>
+
+                <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-3">
+                  {project.title}
+                </h3>
+                <p className="text-gray-600 mb-6 leading-relaxed">
+                  {project.description}
+                </p>
+
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {project.tech.slice(0, 3).map((tech, i) => (
+                    <span key={i} className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="flex flex-col gap-3">
+                  <button 
+                    onClick={() => setSelectedProject(project)}
+                    className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full font-medium hover:shadow-lg hover:scale-105 transition-all text-sm"
+                  >
+                    Read More
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                  <a 
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-full font-medium hover:bg-gray-200 transition-all text-sm"
+                  >
+                    <Github className="w-4 h-4" />
+                    View on GitHub
+                  </a>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
